@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Department;
+use App\Models\UserChildModels\EmployeeUser;
 use App\Models\UserChildModels\ManagerUser;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +18,7 @@ class DepartmentSeeder extends Seeder
             [
                 'name'        => 'Üretim',
                 'description' => 'Üretim departmanı, ürünlerin üretim sürecini yönetir.',
-                'manager_id'  => ManagerUser::latest()->first()->id,
+                'manager_id'  => EmployeeUser::where('email', 'supervisor@tailadmin.dev')->first()->id,
                 'is_active'   => 1,
             ],
         ];

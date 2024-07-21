@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DepartmentResource\Pages;
 use App\Filament\Resources\DepartmentResource\RelationManagers;
 use App\Models\Department;
+use App\Models\UserChildModels\EmployeeUser;
 use App\Models\UserChildModels\ManagerUser;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -34,7 +35,7 @@ class DepartmentResource extends Resource
                     ->label('Yönetici')
                     ->relationship('manager', 'name')
                     ->options(
-                        ManagerUser::pluck('name', 'id')->toArray()
+                        EmployeeUser::pluck('name', 'id')->toArray()
                     )
                     ->required(),
             ]);
