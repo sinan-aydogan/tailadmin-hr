@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     {
         /*Admin*/
         $admin = new AdminUser([
-            'name'     => 'System Admin',
+            'name'     => 'Sistem Sorumlusu',
             'email'    => 'admin@tailadmin.dev',
             'password' => Hash::make('tailadmin'),
         ]);
@@ -26,16 +26,24 @@ class UserSeeder extends Seeder
 
         /*Manager*/
         $manager = new ManagerUser([
-            'name'     => 'Department Manager',
+            'name'     => 'Sinan AYDOĞAN',
             'email'    => 'manager@tailadmin.dev',
             'password' => Hash::make('tailadmin'),
         ]);
         $manager->save();
 
-        /*Employee*/
+        /*Employee accounts of the manager*/
         $employee = new EmployeeUser([
-            'name'     => 'Employee',
-            'email'    => 'employee@tailadmin.dev',
+            'name'     => 'Hamdi KAYA',
+            'email'    => 'supervisor@tailadmin.dev',
+            'password' => Hash::make('tailadmin')
+        ]);
+        $employee->save();
+
+        /*Employee account of simple employee*/
+        $employee = new EmployeeUser([
+            'name'     => 'Zuhal TAŞÇI',
+            'email'    => 'worker@tailadmin.dev',
             'password' => Hash::make('tailadmin')
         ]);
         $employee->save();
