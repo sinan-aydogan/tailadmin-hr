@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DepartmentResource\Pages;
 use App\Filament\Resources\DepartmentResource\RelationManagers;
 use App\Models\Department;
+use App\Models\UserChildModels\EmployeeUser;
 use App\Models\UserChildModels\ManagerUser;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -17,6 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class DepartmentResource extends Resource
 {
     protected static ?string $model = Department::class;
+
+    protected static ?string $label = 'Departman';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -34,7 +37,7 @@ class DepartmentResource extends Resource
                     ->label('Yönetici')
                     ->relationship('manager', 'name')
                     ->options(
-                        ManagerUser::pluck('name', 'id')->toArray()
+                        EmployeeUser::pluck('name', 'id')->toArray()
                     )
                     ->required(),
             ]);

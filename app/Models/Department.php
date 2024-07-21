@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\UserChildModels\EmployeeUser;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,6 +22,6 @@ class Department extends Model
 
     public function manager()
     {
-        return $this->belongsTo(User::class, 'manager_id');
+        return $this->belongsTo(EmployeeUser::class, 'manager_id');
     }
 }
