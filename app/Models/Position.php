@@ -32,7 +32,6 @@ class Position extends Model
             'working_conditions',
             'working_equipments',
             'other',
-            'is_active'
         ];
 
     public function employees()
